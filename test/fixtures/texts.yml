@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  body: MyText
+  is_from_me: false
+  date: 2013-10-01
+  number: MyString
+  date_nice: MyString
+  sender: MyString
+  name: MyString
+
+two:
+  body: MyText
+  is_from_me: false
+  date: 2013-10-01
+  number: MyString
+  date_nice: MyString
+  sender: MyString
+  name: MyString
