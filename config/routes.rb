@@ -1,4 +1,6 @@
 TextApp::Application.routes.draw do
+  root 'static_pages#upload_texts'
+  post '/process_file', to: 'static_pages#process_file'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
