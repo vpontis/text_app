@@ -83,6 +83,7 @@ module TextsHelper
     message['body'].strip!
     message['is_from_me'] = message['is_from_me'] == 1
     message['date_nice'] = get_date_string(message['date'])
+    message['seconds'] = message['date'].to_i
     message['date'] = get_date(message['date'])
 
     message.delete('text')

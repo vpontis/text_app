@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131001204829) do
+ActiveRecord::Schema.define(version: 20131003160417) do
 
   create_table "texts", force: true do |t|
     t.text     "body"
@@ -26,10 +26,19 @@ ActiveRecord::Schema.define(version: 20131001204829) do
     t.integer  "seconds"
   end
 
-  add_index "texts", ["body"], name: "index_texts_on_body"
-  add_index "texts", ["date"], name: "index_texts_on_date"
-  add_index "texts", ["is_from_me"], name: "index_texts_on_is_from_me"
-  add_index "texts", ["name", "date"], name: "index_texts_on_name_and_date"
-  add_index "texts", ["name"], name: "index_texts_on_name"
+  add_index "texts", ["body"], name: "index_texts_on_body", using: :btree
+  add_index "texts", ["date"], name: "index_texts_on_date", using: :btree
+  add_index "texts", ["is_from_me"], name: "index_texts_on_is_from_me", using: :btree
+  add_index "texts", ["name", "date"], name: "index_texts_on_name_and_date", using: :btree
+  add_index "texts", ["name"], name: "index_texts_on_name", using: :btree
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "remember_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
