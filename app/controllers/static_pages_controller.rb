@@ -13,6 +13,6 @@ class StaticPagesController < ApplicationController
 
     messages = get_messages(path)
     logger.debug messages[1]
-    render 'upload_texts'
+    redirect_to root_path
   end
 end

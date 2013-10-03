@@ -11,18 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131001052338) do
+ActiveRecord::Schema.define(version: 20131001204829) do
 
   create_table "texts", force: true do |t|
     t.text     "body"
     t.boolean  "is_from_me"
-    t.date     "date"
+    t.datetime "date"
     t.string   "number"
     t.string   "date_nice"
     t.string   "sender"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "seconds"
   end
+
+  add_index "texts", ["body"], name: "index_texts_on_body"
+  add_index "texts", ["date"], name: "index_texts_on_date"
+  add_index "texts", ["is_from_me"], name: "index_texts_on_is_from_me"
+  add_index "texts", ["name", "date"], name: "index_texts_on_name_and_date"
+  add_index "texts", ["name"], name: "index_texts_on_name"
 
 end
