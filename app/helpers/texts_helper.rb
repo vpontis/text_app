@@ -5,7 +5,10 @@ module TextsHelper
   @@fields = ["ROWID","text","date","date_read","date_delivered","is_from_me"]
   @@num_to_name = {}
 
-  def get_messages(db_filename, owner_name = 'Me', contacts_filename = nil)
+  def get_messages(db_filename, owner_name, contacts_filename = nil)
+    if owner_name.nil? or owner_name == ''
+      owner_name = 'Me'
+    end
     puts 'Getting messages'
     db = SQLite3::Database.new db_filename
     row_query = 'select ' + @@fields.join(',') + ' from message'
@@ -89,10 +92,10 @@ module TextsHelper
     message
   end
 
-  def get_contact_names(filename)
+  def get_contact_names(contact_names_file)
     num_to_name = {}
     digits = '1234567890'
-    file = File.open filename
+    file = File.open contact_names_file
     contacts_list = CSV.read file, :headers => true
     phone_fields = ['Primary Phone', 'Home Phone', 'Home Phone 2', 'Mobile Phone', 'Pager', 'Company Main Phone', 'Business Phone', 'Business Phone 2']
     contacts_list.each do |contact|

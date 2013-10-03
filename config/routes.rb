@@ -1,9 +1,11 @@
 TextApp::Application.routes.draw do
   resources :texts
 
-  post '/process_file', to: 'texts#process_file'
+  post '/upload_texts_db', to: 'texts#upload_texts_db'
+  post '/add_contact_names', to: 'texts#add_contact_names'
   get '/conversation/:name', to: 'texts#conversation'
   get '/upload', to: 'static_pages#upload_texts'
+  get '/delete_texts', to: 'texts#delete_texts'
 
   root 'static_pages#home'
 

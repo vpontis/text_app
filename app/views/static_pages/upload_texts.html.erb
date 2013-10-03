@@ -2,9 +2,9 @@
 
 <div class="row">
   <div class="span10 offset1">
-    <%= form_tag({:controller => 'texts', :action => 'process_file'}, multipart: true, class: "center form-inline") do %>
+    <%= form_tag({:controller => 'texts', :action => 'upload_texts_db'}, multipart: true, class: "center form-inline") do %>
       <div>
-        DB File: <%= file_field_tag :file %>
+        DB File: <%= file_field_tag :texts_db_file %>
       </div>
       <div>
         <%= label_tag(:name, "Name:") %>
@@ -14,5 +14,20 @@
         <%= submit_tag( "Import" ) %>
       </div>
     <% end %>
+
+    <%= form_tag({:controller => 'texts', :action => 'add_contact_names'}, multipart: true, class: "center form-inline") do %>
+      <div>
+        Contact Names CSV: <%= file_field_tag :contact_names_file %>
+      </div>
+      <div>
+        <%= label_tag(:name, "Name:") %>
+        <%= text_field_tag :name %>
+      </div>
+      <div>
+        <%= submit_tag( "Import" ) %>
+      </div>
+    <% end %>
+
+    <%= link_to 'Delete Texts', '/delete_texts' %>
   </div>
 </div>

@@ -1,7 +1,8 @@
 <div class="row">
   <div class="offset1 span10">
-  	<h1>Viewing All Texts</h1>
+  	<h1>Viewing Conversation with <%= @name %></h1>
     <%= will_paginate %>
+  	<%= link_to 'Back to all texts', texts_path, class: 'right back_to_texts' %>
     <ul class="texts">
       <%= render @texts %>
     </ul>

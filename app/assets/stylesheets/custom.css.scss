@@ -51,6 +51,8 @@ h1 {
   .sender {
     width: 15%;
     display: inline-block;
+    text-decoration: none;
+    color: black;
   }
   .body {
     width: 55%;
@@ -64,5 +66,13 @@ h1 {
   .from_me {
     background-color: $grayLight;
   }
+}
+
+.pagination {
+  text-align: center;
+  display: inline-block;
+}
+.back_to_texts {
+  display: inline-block;
 }
 
