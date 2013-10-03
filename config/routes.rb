@@ -1,9 +1,12 @@
 TextApp::Application.routes.draw do
-  root 'static_pages#upload_texts'
-  post '/process_file', to: 'static_pages#process_file'
   resources :texts
+
+  post '/process_file', to: 'texts#process_file'
   get '/conversation/:name', to: 'texts#conversation'
-  
+  get '/upload', to: 'static_pages#upload_texts'
+
+  root 'static_pages#home'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

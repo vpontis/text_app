@@ -1,6 +1,18 @@
 <h1>Upload texts!</h1>
 
-<%= form_tag({:action => :process_file}, multipart: true) do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag( "Import" ) %>
-<% end %>
+<div class="row">
+  <div class="span10 offset1">
+    <%= form_tag({:controller => 'texts', :action => 'process_file'}, multipart: true, class: "center form-inline") do %>
+      <div>
+        DB File: <%= file_field_tag :file %>
+      </div>
+      <div>
+        <%= label_tag(:name, "Name:") %>
+        <%= text_field_tag :name %>
+      </div>
+      <div>
+        <%= submit_tag( "Import" ) %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -33,7 +33,12 @@ textarea {
 }
 
 h1 {
-	text-align: center;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.actions {
+  text-align: center;
 }
 
 .texts {
@@ -44,20 +49,20 @@ h1 {
     border-top: 1px solid #e8e8e8;
   }
   .sender {
-  	width: 15%;
-  	display: inline-block;
+    width: 15%;
+    display: inline-block;
   }
   .body {
-  	width: 55%;
-  	display: inline-block;
+    width: 55%;
+    display: inline-block;
   }
   .date {
-  	width: 20%;
-  	text-align: right;
+    width: 20%;
+    text-align: right;
   }
 
   .from_me {
-  	background-color: $grayLight;
+    background-color: $grayLight;
   }
 }
 

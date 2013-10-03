@@ -5,7 +5,7 @@ module TextsHelper
   @@fields = ["ROWID","text","date","date_read","date_delivered","is_from_me"]
   @@num_to_name = {}
 
-  def get_messages(db_filename, contacts_filename = nil)
+  def get_messages(db_filename, owner_name = 'Me', contacts_filename = nil)
     puts 'Getting messages'
     db = SQLite3::Database.new db_filename
     row_query = 'select ' + @@fields.join(',') + ' from message'
@@ -21,9 +21,9 @@ module TextsHelper
       message = row_to_message(row)
       message = get_number(message, db)
       if contacts_filename
-        message = get_name_and_sender(message, name_to_num)
+        message = get_name_and_sender(message, owner_name, name_to_num)
       else
-        message = get_name_and_sender(message)
+        message = get_name_and_sender(message, owner_name)
       end
       message.delete 'ROWID'
       messages << message
@@ -57,17 +57,17 @@ module TextsHelper
     message
   end
 
-  def get_name_and_sender(message, num_to_name = nil)
+  def get_name_and_sender(message, owner_name, num_to_name = nil)
     if num_to_name.nil?
       message['name'] = message['number']
-      message['sender'] = is_from_me ? 'Victor Pontis' : message['number']
+      message['sender'] = message['is_from_me'] ? owner_name : message['number']
       return message
     end
 
     name = num_to_name[message['number']]
     name = message['number'] if name.nil?
     message['name'] = name
-    message['sender'] = is_from_me ? 'Victor Pontis' : namej
+    message['sender'] = message['is_from_me'] ? owner_name : namej
     message
   end
 

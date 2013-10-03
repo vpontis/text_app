@@ -5,6 +5,7 @@ gem 'rails', '4.0.0'
 
 # for styling
 gem 'bootstrap-sass'
+gem 'filepicker-rails'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
