@@ -1,6 +1,6 @@
 class TextsController < ApplicationController
   def index
-    @texts = Text.all
+    @texts = Text.all.paginate(page: params[:page])
   end
 
   def conversation
