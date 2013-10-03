@@ -1,0 +1,7 @@
+<li class="text<%= ' from_me' if text.is_from_me %>" id="text-<%= text.id %>">
+
+  <div class="sender"><%= text.sender %></div>
+  <div class="body"><%= text.body %></div>
+  
+  <div class="date right"><%= text.date_nice %></div>
+</li>

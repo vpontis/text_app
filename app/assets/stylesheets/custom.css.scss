@@ -1,0 +1,63 @@
+@import "bootstrap";
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+h1 {
+	text-align: center;
+}
+
+.texts {
+  list-style: none;
+  margin: 10px 0 0 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .sender {
+  	width: 15%;
+  	display: inline-block;
+  }
+  .body {
+  	width: 55%;
+  	display: inline-block;
+  }
+  .date {
+  	width: 20%;
+  	text-align: right;
+  }
+
+  .from_me {
+  	background-color: $grayLight;
+  }
+}
+
