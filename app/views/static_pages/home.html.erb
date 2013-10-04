@@ -1,8 +1,18 @@
-<div class="hero-unit">
-  <h1>Welcome to the text app</h1>
-  <div class="actions">
-    <div class="btn btn-large btn-primary">Sign In</div>
-    <%= link_to 'Upload Texts', upload_path, class: 'btn btn-large btn-primary' %>
+<% if signed_in? %>
+  <div class="hero-unit">
+    <h1>Welcome to the text app</h1>
+    <div class="actions">
+      <%= link_to 'Upload Texts', upload_path, class: 'btn btn-large btn-primary' %>
+      <%= link_to 'View Texts', texts_path, class: 'btn btn-large btn-primary' %>
+    </div>
+    <!-- Set up instructions on how to upload -->
   </div>
-  <!-- Set up instructions on how to upload -->
-</div>
+<% else %>
+  <div class="hero-unit">
+    <h1>Welcome to the text app</h1>
+    <div class="actions">
+      <div class="btn btn-large btn-primary">Sign In</div>
+      <%= link_to 'Upload Texts', upload_path, class: 'btn btn-large btn-primary' %>
+    </div>
+  </div>
+<% end %>
