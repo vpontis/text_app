@@ -7,6 +7,14 @@ TextApp::Application.routes.draw do
   get '/upload', to: 'static_pages#upload_texts'
   get '/delete_texts', to: 'texts#delete_texts'
 
+  # access control
+  match '/signup', to: 'users#new', via: 'get'
+  match '/signin', to: 'sessions#new', via: 'get'
+  match '/signout', to: 'sessions#destroy', via: 'delete'
+
+  resources :users
+  resources :sessions
+
   root 'static_pages#home'
 
   # The priority is based upon order of creation: first created -> highest priority.

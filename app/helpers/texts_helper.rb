@@ -42,8 +42,11 @@ module TextsHelper
 
   # gets date from seconds offset since 2001
   def get_date(seconds)
+    seconds_per_day = 86400.0
     origin_time = DateTime.new 2001, 1, 1, 0, 0, 0
-    origin_time + seconds/86400.0
+    # this is of grenich mean time so subtract 4 hours for EST
+    origin_time -= 60*60*4/seconds_per_day
+    origin_time + seconds/seconds_per_day
   end
 
   # get number for message

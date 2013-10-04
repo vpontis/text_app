@@ -1,6 +1,7 @@
 class TextsController < ApplicationController
   def index
-    @texts = Text.all.paginate(page: params[:page])
+    @texts = Text.all.order('date asc').paginate(page: params[:page])
+    @top_names = Text.select('name, count(*) as id').group('name').order('count(*) desc').map {|text| [text.name, text.id]}
   end
 
   def conversation
